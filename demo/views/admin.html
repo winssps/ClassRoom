@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>admin</title>
+
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="/dist/css/bootstrap.css">
+
+  <link href="/stylesheets/blog.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/signin.css">
+
+  </head>
+  <body bgcolor="white">
+  	<div style="margin: 60px 100px auto 150px;">
+	  <h1>设置</h1>
+		  <ul class="nav nav-tabs" id="myTabs">
+		  <li role="presentation" class="active"><a href="#admin">基础设置</a></li> 
+		  <li role="presentation"><a href="#myself">个人资料</a></li>
+		  <li role="presentation"><a href="#setpassword">修改密码</a></li>
+		  <li role="presentation"><a href="#useradmin">账号管理</a></li>
+		</ul>
+		<div class="tab-content"> 
+            <!-- 	作者：365423254@qq.com  时间：2016-08-19 描述：admin 设置界面-->
+		  <div role="tabpanel" class="tab-pane fade in active" id="admin">
+		  	<div id="adminview">
+		  		<h3>昵称与电子邮件</h3>
+		  		<form  method = "post" action="/admin/user">
+				  <div class="form-group">
+				    <label for="exampleInputname">昵称</label>
+				    <input type="text" name="name" class="form-control" id="" value="hhhh">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">电子邮箱</label>
+				    <input type="email" class="form-control" value="hhhh" disabled="true">
+				  </div>
+				  <button type="submit" class="btn btn-info" id="userbut" >保存</button>
+				</form>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane fade" id="myself">
+		  	 <div id="myselfview">
+		  	   <form method = "post" enctype="multipart/form-data" action="/admin/updatefile" >
+			  	 	<div id="">
+			  	 	  <div style="width: 90px;height: 90px;display: inline-block;margin: 0 0 20px 0;" >
+			  	 	  	<img src="hhhh" alt="..." class="img-circle">
+			  	 	  </div>
+			  	 		<input type="file"  name="thumbnail" id="exampleInputFile" />
+			  	 	</div>
+			  	 	<div id="">
+			  	 		<label class="control-label">简介</label>
+			  	 		<textarea placeholder="填写您的个人简介可以帮助其他人更好的了解您。"
+			  	 			rows="5" class="input-xxlarge" name="userintro" id="user_intro">
+			  	 			</textarea>
+			  	 	</div>
+			  	 	<input class="btn btn-info" type="submit" value="保存">
+		  	    </form>
+		  	 </div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane fade" id="setpassword">
+		  	<div id="setpasswordview">
+		  		<form method = "post" action="/admin/setpassword">
+				  <div class="form-group">
+				    <label for="exampleInputOriginalPassword">原始密码</label>
+				    <input type="password" class="form-control" name="originalPassword">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">新密码</label>
+				    <input type="password" class="form-control" name="newPassword">
+				  </div>
+				   <div class="form-group">
+				    <label for="exampleInputPassword2">确认密码</label>
+				    <input type="password" class="form-control" name="passwordRepeat">
+				  </div>
+				  <button type="submit" class="btn btn-info">保存</button>
+				</form>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane fade" id="useradmin">
+		  	
+		  	<button type="button" class="btn btn-info" onclick="javascript:window.location.href='/blog'">退出</button>
+
+		  </div>
+		 </div>	
+  	</div>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    		$('#myTabs a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		});
+    </script>
+  </body>
+</html>
